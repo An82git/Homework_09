@@ -5,14 +5,47 @@ ERROR_DIC = {"add_IndexError": "Give me name and phone please",
              "phone_IndexError": "Enter user name",
              "phone_KeyError": "There is no such name"}
 
-COMMAND_DIC = {"hello": lambda: "How can I help you?",
-               "add": lambda name, phone: contacts.update({name.title(): phone}),
-               "change": lambda name, phone: contacts.update({name.title(): phone}),
-               "phone": lambda name: contacts[name.title()],
-               "show all": lambda: contacts,
-               "good bye": lambda: "Good bye!",
-               "close": lambda: "Good bye!",
-               "exit": lambda: "Good bye!"}
+
+def hello() -> str:
+    return "How can I help you?"
+
+
+def add(name: str, phone: str):
+    return contacts.update({name.title(): phone})
+
+
+def change(name: str, phone: str):
+    return contacts.update({name.title(): phone})
+
+
+def phone(name: str) -> str:
+    return contacts[name.title()]
+
+
+def show_all() -> dict:
+    return contacts
+
+
+def good_bye() -> str:
+    return "Good bye!"
+
+
+def close() -> str:
+    return "Good bye!"
+
+
+def exit() -> str:
+    return "Good bye!"
+
+
+COMMAND_DIC = {"hello": hello,
+               "add": add,
+               "change": change,
+               "phone": phone,
+               "show all": show_all,
+               "good bye": good_bye,
+               "close": close,
+               "exit": exit}
 
 
 def input_error(func):
